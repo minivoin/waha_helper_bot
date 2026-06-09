@@ -9,13 +9,7 @@ router = Router()
 
 @router.message(CommandStart()) # ОБРАБОТКА КОМАНДЫ СТАРТ 
 async def start(message: Message):
-    with open('kenti.txt', 'r') as f:
-        kent = f.read().split('\n')
-    this_user = message.from_user.username
-    if this_user in kent:
-        await message.answer(f'ОООО Здарова {this_user}\nВводи команду!')
-    else:
-        await message.answer(f'Ты кто?')
+    await message.answer('Привет я бот для раздачи говна')
 
 
 @router.message(Command("roll_deploy")) 
@@ -36,7 +30,3 @@ async def rule(message: Message):
     await message.answer_photo(FSInputFile(image))
 
 
-if __name__ == "__main__":
-    with open('kenti.txt', 'r', encoding='utf-8') as f:
-        kent = f.read().split('\n')
-    print(kent)
