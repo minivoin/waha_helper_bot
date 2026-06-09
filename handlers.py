@@ -1,7 +1,7 @@
 from aiogram import F, Router# type: ignore
 from aiogram.types import Message, CallbackQuery, FSInputFile, InputMediaPhoto# type: ignore
 from aiogram.filters import CommandStart, Command # type: ignore
-from rolls import roll_deploy, roll_second
+from rolls import roll_deploy, roll_second, roll_rule
 import asyncio
 
 
@@ -20,19 +20,20 @@ async def start(message: Message):
 
 @router.message(Command("roll_deploy")) 
 async def deploy(message: Message):
-    # await message.delete()
     image = await roll_deploy()
     await message.answer_photo(FSInputFile(image))
 
 
-@router.message(Command("roll_deploy")) 
+@router.message(Command("roll_second")) 
 async def second(message: Message):
-    
-    media = await roll_second(None)
-    
-    # Отправляем альбом
-    await message.answer_media_group(media=media)
+    image = await roll_second()
+    await message.answer_photo(FSInputFile(image))
 
+
+@router.message(Command("roll_rule")) 
+async def rule(message: Message):
+    image = await roll_rule()
+    await message.answer_photo(FSInputFile(image))
 
 
 if __name__ == "__main__":

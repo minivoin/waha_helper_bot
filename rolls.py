@@ -3,15 +3,17 @@ import asyncio
 
 
 async def roll_deploy():
-    card = random(1, 6)
+    card = random(1, 5)
     return f'deploy/{card}.jpg'
 
-async def roll_second(drop):
-    if drop == None:
-        print('Сброшена обе карты либо их нет впринцепе')
-        
-    else:
-        print('Сброшена онда карта')
+async def roll_second():
+    card = random(1, 16)
+    return f'second/{card}.jpg'
+
+
+async def roll_rule():
+    card = random(1, 12)
+    return f'rule/{card}.jpg'
     
 
 
