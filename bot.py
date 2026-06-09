@@ -3,7 +3,6 @@ from handlers import router
 import asyncio
 
 
-
 async def main():
     bot = Bot(token='8774495189:AAH5gQ6pHPS51WEi9MtwTcXm6bQBSBqlnOs') ## ТОКИН БОТА
     dp = Dispatcher()
